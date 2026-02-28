@@ -4,7 +4,7 @@ WORKDIR /app
 
 #cache del docker y depenencias
 COPY pom.xml .
-RUN mvn dependecy:go-offline
+RUN mvn dependency:go-offline
 
 # copiar codigo fuente y compilr
 COPY src ./src
