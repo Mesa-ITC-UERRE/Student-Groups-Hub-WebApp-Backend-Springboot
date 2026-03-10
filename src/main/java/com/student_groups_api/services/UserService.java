@@ -35,10 +35,35 @@ public class UserService {
         return toResponse(user);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public UserResponse me() {
-        User currentUser = currentUserService.getCurrentUser();
-        return toResponse(currentUser);
+
+        /*
+         * ============================================================
+         * TEMP TEST MODE
+         * ============================================================
+         * Authentication is temporarily disabled for backend testing.
+         * Because there is no JWT in the SecurityContext, we return a
+         * fixed seeded test user instead of resolving the current user.
+         *
+         * REQUIRED TEST DATA:
+         * A user with entra_oid = 'test-user-1' must exist in the DB.
+         *
+         * REMOVE THIS AFTER TESTING:
+         * Restore the original implementation:
+         *
+         *     User currentUser = currentUserService.getCurrentUser();
+         *     return toResponse(currentUser);
+         *
+         * ============================================================
+         */
+
+        User testUser = userRepository.findByEntraOid("test-user-1")
+                .orElseThrow(() -> new NotFoundException(
+                        "Test fallback user not found. Insert a user with entra_oid='test-user-1'"
+                ));
+
+        return toResponse(testUser);
     }
 
     private static UserResponse toResponse(User user) {
