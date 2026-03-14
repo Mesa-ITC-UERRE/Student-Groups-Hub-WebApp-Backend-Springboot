@@ -43,7 +43,7 @@ resource "azurerm_container_app" "app" {
     value = azurerm_container_registry.acr.admin_password
   }
   secret {
-    name="DB_PASSWORD"
+    name="db-password"
     value = var.db_password
   }
 
@@ -70,7 +70,7 @@ resource "azurerm_container_app" "app" {
         value= var.db_user
       }
       env {
-        name = "db_password"
+        name = "db-password"
         secret_name = "db-password"
       }
     }
