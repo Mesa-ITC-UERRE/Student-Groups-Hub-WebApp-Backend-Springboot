@@ -4,18 +4,21 @@ variable "subscription_id" {
 }
 
 variable "project_name" {
-  description = "Nombre corto del proyecto (sin espacios). Se usa como prefijo en todos los recursos"
+  description = "Nombre corto del proyecto"
   type        = string
+  default = "hubescolar"
 }
 
 variable "environment" {
   description = "Entorno a trabajar"
   type        = string
+  default = "prod"
 }
 
 variable "location" {
   description = "Región de Azure donde se crearán los recursos"
   type        = string
+  default = "eastus"
 }
 
 variable "image_tag" {
@@ -27,16 +30,19 @@ variable "image_tag" {
 variable "container_cpu" {
   description = "CPU para el contenedor (ej: 0.5, 1.0)"
   type        = number
+  default = 0.5
 }
 
 variable "container_memory" {
   description = "Memoria para el contenedor (ej: 1Gi, 2Gi)"
   type        = string
+  default = "1Gi"
 }
 
 variable "container_port" {
   description = "Puerto que expone tu app Java (ej: 8080)"
   type        = number
+  default = 8080
 }
 
 variable "min_replicas" {
