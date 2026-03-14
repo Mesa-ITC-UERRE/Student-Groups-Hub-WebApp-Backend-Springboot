@@ -36,3 +36,8 @@ application-secret.yml
 *.tfstate.backup
 *.tfvars
 .terraform.tfstate.lock.info
+
+echo ".terraform/" >> infra/.gitignore
+echo "*.tfstate" >> infra/.gitignore
+echo "*.tfstate.backup" >> infra/.gitignore
+echo "terraform.tfvars" >> infra/.gitignore
