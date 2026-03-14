@@ -13,7 +13,7 @@ env:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    needs: build     # espera que el CI pase primero
+   # needs: build     
 
     steps:
       - uses: actions/checkout@v4
