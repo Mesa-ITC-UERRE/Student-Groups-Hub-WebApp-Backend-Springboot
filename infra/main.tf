@@ -70,7 +70,7 @@ resource "azurerm_container_app" "app" {
         value= var.db_user
       }
       env {
-        name = "DB_PASSWORD"
+        name = "db_password"
         secret_name = "db-password"
       }
     }
