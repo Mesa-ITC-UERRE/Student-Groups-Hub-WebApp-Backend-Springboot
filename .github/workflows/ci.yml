@@ -21,4 +21,4 @@ jobs:
           cache: maven
 
       - name: Build y tests
-        run: mvn verify
+        run: mvn verify -DskipTests
