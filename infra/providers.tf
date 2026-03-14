@@ -14,8 +14,8 @@ terraform {
   }
 
 }
-
 provider "azurerm"{
 
     features {}
 }
+# trigger
