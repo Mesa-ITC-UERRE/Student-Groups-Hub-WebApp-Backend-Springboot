@@ -1,8 +1,3 @@
-variable "subscription_id" {
-  description = "ID de tu suscripción de Azure"
-  type        = string
-}
-
 variable "project_name" {
   description = "Nombre corto del proyecto"
   type        = string
