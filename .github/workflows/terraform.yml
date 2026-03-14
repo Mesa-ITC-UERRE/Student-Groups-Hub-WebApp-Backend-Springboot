@@ -34,4 +34,4 @@ jobs:
         run: terraform plan -var="db_url=${{ secrets.DB_URL }}" -var="db_user=${{ secrets.DB_USER }}" -var="db_password=${{ secrets.DB_PASSWORD }}" -out=tfplan
 
       - name: Terraform Apply
-        run: terraform apply -var="db_url=${{ secrets.DB_URL }}" -var="db_user=${{ secrets.DB_USER }}" -var="db_password=${{ secrets.DB_PASSWORD }}" -auto-approve tfplan
+        run: terraform apply -auto-approve tfplan
