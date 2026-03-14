@@ -1,5 +1,52 @@
-variable "instance_type" {
-  type        = string                     # The type of the variable, in this case a string
-  default     = "t2.micro"                 # Default value for the variable
-  description = "The type of EC2 instance" # Description of what this variable represents
+variable "subscription_id" {
+  description = "ID de tu suscripción de Azure"
+  type        = string
+}
+
+variable "project_name" {
+  description = "Nombre corto del proyecto (sin espacios). Se usa como prefijo en todos los recursos"
+  type        = string
+}
+
+variable "environment" {
+  description = "Entorno a trabajar"
+  type        = string
+}
+
+variable "location" {
+  description = "Región de Azure donde se crearán los recursos"
+  type        = string
+}
+
+variable "image_tag" {
+  description = "Tag de la imagen Docker a desplegar"
+  type        = string
+  default     = "latest"
+}
+
+variable "container_cpu" {
+  description = "CPU para el contenedor (ej: 0.5, 1.0)"
+  type        = number
+}
+
+variable "container_memory" {
+  description = "Memoria para el contenedor (ej: 1Gi, 2Gi)"
+  type        = string
+}
+
+variable "container_port" {
+  description = "Puerto que expone tu app Java (ej: 8080)"
+  type        = number
+}
+
+variable "min_replicas" {
+  description = "Mínimo de instancias corriendo"
+  type        = number
+  default     = 1
+}
+
+variable "max_replicas" {
+  description = "Máximo de instancias para escalar"
+  type        = number
+  default     = 3
 }
