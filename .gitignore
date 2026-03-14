@@ -19,34 +19,25 @@
 *.tar.gz
 *.rar
 
-# JVM crash logs
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
 
-# ===============================
-# Maven
-# ===============================
-target/
+.idea
 
-# ===============================
-# IntelliJ IDEA
-# ===============================
+.env
+.DS_Store
 .idea/
 *.iml
+*.env
+application-local.yml
+application-secret.yml
+*.tfstate
+*.tfstate.backup
+*.tfvars
+.terraform.tfstate.lock.info
 
-# ===============================
-# OS files
-# ===============================
-.DS_Store
-Thumbs.db
-
-# ===============================
-# Environment
-# ===============================
-.env
-.env.*
-
-# ===============================
-# Logs
-# ===============================
-logs/
+echo ".terraform/" >> infra/.gitignore
+echo "*.tfstate" >> infra/.gitignore
+echo "*.tfstate.backup" >> infra/.gitignore
+echo "terraform.tfvars" >> infra/.gitignore
