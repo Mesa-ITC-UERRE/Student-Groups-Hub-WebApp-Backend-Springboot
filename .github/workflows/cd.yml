@@ -62,11 +62,7 @@ jobs:
             --name $CONTAINER_APP \
             --resource-group $RESOURCE_GROUP \
             --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-            
+
       - name: Deploy a Container Apps
-        run: |
-          az containerapp update \
-            --name $CONTAINER_APP \
-            --resource-group $RESOURCE_GROUP \
-            --image $ACR_NAME/$IMAGE_NAME:${{ github.sha }}
-            --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        run: az containerapp update --name $CONTAINER_APP --resource-group $RESOURCE_GROUP --image $ACR_NAME/$IMAGE_NAME:${{ github.sha }} --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          
