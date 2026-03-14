@@ -51,3 +51,18 @@ variable "max_replicas" {
   type        = number
   default     = 3
 }
+variable "db_url" {
+  description = "URL de conexión a Supabase"
+  type        = string
+}
+
+variable "db_user" {
+  description = "Usuario de Supabase"
+  type        = string
+}
+
+variable "db_password" {
+  description = "Password de Supabase"
+  type        = string
+  sensitive   = true    
+}

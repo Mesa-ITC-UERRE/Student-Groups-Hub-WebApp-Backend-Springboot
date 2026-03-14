@@ -42,6 +42,10 @@ resource "azurerm_container_app" "app" {
     name  = "acr-password"
     value = azurerm_container_registry.acr.admin_password
   }
+  secret {
+    name="DB_PASSWORD"
+    value = var.db_password
+  }
 
   template {
     min_replicas = var.min_replicas
@@ -56,6 +60,18 @@ resource "azurerm_container_app" "app" {
       env {
         name  = "SPRING_PROFILES_ACTIVE"
         value = var.environment
+      }
+      env {
+        name= "DB_URL"
+        value = var.db_url
+      }
+      env {
+        name="DB_USER"
+        value= var.db_user
+      }
+      env {
+        name = "DB_PASSWORD"
+        secret_name = "db-password"
       }
     }
   }
